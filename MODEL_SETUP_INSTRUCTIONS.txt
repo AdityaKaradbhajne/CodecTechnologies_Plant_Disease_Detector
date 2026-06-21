@@ -1,0 +1,45 @@
+⚠️ MODEL FILE REQUIRED — READ BEFORE RUNNING
+
+This folder must contain a file named exactly:
+
+    plant_disease_model.tflite
+
+This .tflite binary is NOT included in this repository (model files are
+typically 5-50MB and shouldn't be committed directly to Git without Git LFS).
+
+────────────────────────────────────────────────────────────────────────────
+HOW TO GET A PLANT DISEASE TFLITE MODEL (pick one option)
+────────────────────────────────────────────────────────────────────────────
+
+OPTION 1 — Kaggle (PlantVillage dataset, pre-converted models exist)
+  1. Go to https://www.kaggle.com/datasets/emmarex/plantdisease
+  2. Search Kaggle for "plant disease tflite model" — several public
+     notebooks publish ready-to-use .tflite exports trained on this dataset.
+  3. Download the .tflite file and place it here as plant_disease_model.tflite
+
+OPTION 2 — TensorFlow Hub
+  1. Go to https://tfhub.dev and search "plant disease classification"
+  2. Download a compatible model, convert to .tflite using the TFLite
+     Converter if it isn't already in that format.
+
+OPTION 3 — Train your own with Teachable Machine (fastest, no code)
+  1. Go to https://teachablemachine.withgoogle.com/train/image
+  2. Create classes for each disease you want to detect, upload sample
+     leaf images for each class (the PlantVillage dataset on Kaggle has
+     thousands of labeled images you can use).
+  3. Train, then Export Model → TensorFlow Lite → Floating point.
+  4. Rename the downloaded model to plant_disease_model.tflite.
+  5. IMPORTANT: also replace labels.txt in this folder with the exact
+     class names Teachable Machine generates, in the same order.
+
+────────────────────────────────────────────────────────────────────────────
+IMPORTANT
+────────────────────────────────────────────────────────────────────────────
+- The labels.txt in this assets/ folder currently uses PlantVillage's
+  standard 19-class naming format ("Plant___Disease"). If you use a
+  different model/dataset, update labels.txt to match your model's
+  output classes IN THE SAME ORDER as the model's output tensor.
+- DiseaseInfoProvider.kt (in ml/) maps each label string to display
+  name + care tips. Update its keys if you change labels.txt.
+- Input size is hardcoded to 224x224 in PlantDiseaseClassifier.kt —
+  change INPUT_SIZE there if your model uses a different input shape.

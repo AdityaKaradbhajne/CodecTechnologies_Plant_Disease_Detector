@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Plant Disease Detector</string>
+    <string name="status_ready">Point camera at a leaf and tap to scan</string>
+    <string name="status_analyzing">Analyzing…</string>
+    <string name="confidence_format">%d%% confidence</string>
+    <string name="care_tips_header">Care Tips &amp; Remedies</string>
+    <string name="scan_another">Scan Another Plant</string>
+    <string name="no_scans_yet">No scans yet.\nCapture a leaf to get started!</string>
+    <string name="confirm_delete_scan_title">Delete this scan?</string>
+    <string name="confirm_delete_scan_msg">This will permanently remove the scan and its image from history.</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+</resources>
